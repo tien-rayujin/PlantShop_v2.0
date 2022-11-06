@@ -12,21 +12,27 @@
         <title>Manage Plant Page</title>
     </head>
     <body>
-        <h2>Manage Plant</h2>
-        <form action="<c:url value="/admin"/>">
-            <input type="text" name="keySearch" placeholder="Search plant name here..." value="${requestScope.keySearch}">
-            <input type="hidden" name="action" value="searchPlant" />
-            <input type="submit" value="Search">
-        </form>
-
-        <c:if test="${updatePlant_Successful}">
-            <h3><font color='red'>Plant update Successfully</font></h3>
-        </c:if>
+        <div class="text-center">
+            <h2>Manage Plant</h2>
+            <form action="<c:url value="/admin"/>">
+                <input type="text" name="keySearch" placeholder="Search plant name here..." value="${requestScope.keySearch}">
+                <input type="hidden" name="action" value="searchPlant" />
+                <input type="submit" value="Search">
+            </form>
+                
+            <c:if test="${updatePlant_Successful}">
+                <h4><font color='red'>Plant update Successfully</font></h4>
+            </c:if>     
+        </div>
+            
+        
             
             
         <c:choose>
             <c:when test="${plantList != null and not empty plantList}">
-                <table>
+                <table class="table text-center">
+                <c:forEach var="eachP" items="${plantList}" varStatus="status">
+                <c:if test="${status.first}">
                 <tr>
                     <th>PlantID </th>
                     <th>PlantName</th>
@@ -38,8 +44,8 @@
                     <th>Edit</th>
                     <th>Update</th>
                     <th>Delete</th>
-                </tr>
-                <c:forEach var="eachP" items="${plantList}">
+                </tr>        
+                </c:if>    
                 <form action="<c:url value="/admin"/>" method="get">
                 <input type="hidden" name="action" value="updatePlantInfo"/>
                 <input type="hidden" name="plantId" value="${eachP.plantId}"/>
@@ -51,16 +57,16 @@
                     <td><input type="text" name="description" id="description_${eachP.plantId}" disabled="disabled" value="${eachP.description}"/></td>
                     <td><input type="text" name="status" id="status_${eachP.plantId}" disabled="disabled" value="${eachP.status}" size="5"/></td>
                     <td><input type="text" name="cateId" id="cateId_${eachP.plantId}" disabled="disabled" value="${eachP.cateId}" size="5"/></td>
-                    <td><button id="editButton_${eachP.plantId}" onclick="doEdit(${eachP.plantId + ""})">Edit</button></td>
-                    <td><input type="submit" disabled id="updateButton_${eachP.plantId}" onclick="doEdit(${eachP.plantId + ""})" value="Update"></td>
+                    <td><button class="btn btn-secondary" id="editButton_${eachP.plantId}" onclick="doEdit(${eachP.plantId + ""})">Edit</button></td>
+                    <td><input class="btn btn-secondary" type="submit" disabled id="updateButton_${eachP.plantId}" onclick="doEdit(${eachP.plantId + ""})" value="Update"></td>
                 </form>    
-                <td><button onclick="doDeleteConfirm(${eachP.plantId})">Delete</button></td>
+                <td><button class="btn btn-secondary" onclick="doDeleteConfirm(${eachP.plantId})">Delete</button></td>
                 </tr>
                 
                 
                 </c:forEach>
                 <c:if test="${addPlant_Successful}">
-                    <font color="red">Plant added Successfully</font>
+                    <h4><font color="red">Plant added Successfully</font></h4>
                 </c:if>
                         
                 <form action="<c:url value="/admin"/>" method="get">
@@ -73,15 +79,15 @@
                     <td><input id="new_description" disabled="" type="text" name="new_description" required=""/></td>
                     <td><input id="new_status" disabled="" type="text" size="5" name="new_status" required=""/></td>
                     <td><input id="new_cateId" disabled="" type="text" size="5" name="new_cateId" required=""/></td>
-                    <td><input id="add_newButton" disabled="" type="submit" value="Add"/></td>
+                    <td><input class="btn btn-secondary" id="add_newButton" disabled="" type="submit" value="Add"/></td>
                 </tr>
                 
                 </form>
                 </table> 
-                <button onclick="doAdd()">Add...</button>
+                <button class="btn btn-secondary" onclick="doAdd()">Add...</button>
             </c:when>
             <c:otherwise>
-                <h3><font color="red">Plant was not founded !</font></h3>
+                <h4><font color="red">Plant was not founded !</font></h4>
             </c:otherwise>
         </c:choose> 
                 
@@ -90,10 +96,10 @@
                 To input valid data, follow the instruction here: <br/>
                 - plantName must be String and no special character <br/>
                 - price must be Integer and not negative <br/>
-                - Image must reference to /images source <br/>
+                - Image must reference to /images/Plants/* source <br/>
                 - Description can be none<br/>
                 - Status {0: UnAvailable, 1: Available} <br/>
-                - Categories {1: Orchid, 2: Plant, 3: ....} <br/>
+                - Categories {1: Orchid, 2: Plant, 3: ....} follow Category<br/>
                 - After input according to above click the button "Add"<br/>
                 <br/>            
                 

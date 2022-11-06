@@ -12,12 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h2>Manage Category</h2><br/>
-        
-        <c:if test="${updateCate_Successful}">
-            <h3><font color='red'>Category update Successfully</font></h3>
-        </c:if>
-        <table>
+        <div class="text-center">
+            <h2>Manage Category</h2><br/>
+
+            <c:if test="${updateCate_Successful}">
+                <h3><font color='red'>Category update Successfully</font></h3>
+            </c:if>
+            
+        </div>    
+        <table class="table text-center">
             <c:forEach items="${cateList}" var="eachCate" varStatus="status">
                 <c:if test="${status.first}">
                     <tr>
@@ -33,8 +36,8 @@
                     <tr>
                         <td><input type="text" disabled name="cateId" value="${eachCate.cateId}"/></td>
                         <td><input type="text" disabled name="cateName" id="cateName_${eachCate.cateId}" value="${eachCate.cateName}"/></td>
-                        <td><button id="editButton_${eachCate.cateId}" onclick="doEdit(${eachCate.cateId + ""})">Edit</button></td>
-                        <td><input type="submit" disabled id="updateButton_${eachCate.cateId}" onclick="doEdit(${eachP.plantId + ""})" value="Update"></td>
+                        <td><button  class="btn btn-secondary" id="editButton_${eachCate.cateId}" onclick="doEdit(${eachCate.cateId + ""})">Edit</button></td>
+                        <td><input  class="btn btn-secondary" type="submit" disabled id="updateButton_${eachCate.cateId}" onclick="doEdit(${eachP.plantId + ""})" value="Update"></td>
                     </tr>
                     </form>
             </c:forEach>
@@ -45,16 +48,16 @@
         </c:if>
                         
         <form action="<c:url value="/admin"/>" method="get">
-        <input type="hidden" name="action" value="addNewCate"/>    
-        <tr>
-            <td>#</td>
-            <td><input id="new_cateName" disabled="" type="text" name="new_cateName" required=""/></td>
-            <td><input id="add_newButton" disabled="" type="submit" value="Add"/></td>
-        </tr>
-                
+            <input type="hidden" name="action" value="addNewCate"/>    
+            <tr>
+                <td>#</td>
+                <td><input id="new_cateName" disabled="" type="text" name="new_cateName" required=""/></td>
+                <td><input  class="btn btn-secondary" id="add_newButton" disabled="" type="submit" value="Add"/></td>
+            </tr>        
         </form>
+            
         </table>    
-        <button onclick="doAdd()">Add...</button>    
+        <button  class="btn btn-secondary" onclick="doAdd()">Add...</button>    
         
         <script>
             function doEdit(cate_id){

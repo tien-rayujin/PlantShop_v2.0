@@ -7,7 +7,7 @@
 <%-- @elvariable id="numberOfSessions" type="java.lang.Integer" --%>
 <%-- @elvariable id="sessionList" type="java.util.List" --%>
 
-
+<%--
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%!
@@ -50,3 +50,4 @@
         %>
     </body>
 </html>
+--%>

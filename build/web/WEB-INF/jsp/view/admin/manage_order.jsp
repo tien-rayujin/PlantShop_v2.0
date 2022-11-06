@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div class="text-center">
         <h2>Manage Order</h2>
         
         <form action="<c:url value="/admin"/>">
@@ -27,7 +28,8 @@
         <c:if test="${updateOrder_Successful}">
             <h3><font color = 'red'>Order update Successfully</font></h3>
         </c:if>
-        <table>
+        </div>    
+        <table class="table text-center">
             <c:choose>   
             <c:when test="${orderList != null and not empty orderList}">
             <c:forEach items="${orderList}" var="eachO" varStatus="status">
@@ -44,7 +46,7 @@
                     <tr>
                         <td>${eachO.orderId}</td>
                         <td>${eachO.orderDate}</td>
-                        <td>${eachO.shipDate}</td>
+                        <td>${(eachO.shipDate == null) ? "Not Yet" : eachO.shipDate}</td>
                         <td>${eachO.accId}</td>
                         <td><c:choose>
                             <c:when test="${eachO.status == 1}">PROCESSING</c:when>
@@ -53,11 +55,11 @@
                     </c:choose></td>
                         <td><c:choose>
                                 <c:when test="${eachO.status == 1}">
-                                    <a href="<c:url value="/admin?action=cancelOrder&orderId=${eachO.orderId}"/>">Cancel</a>
+                                    <a href="<c:url value="/admin?action=cancelOrder&orderId=${eachO.orderId}"/>"><button class="btn btn-secondary">Cancel</button></a>
                                 </c:when>
                             <c:when test="${eachO.status == 2}"></c:when>
                             <c:when test="${eachO.status == 3}">
-                                <a href="<c:url value="/admin?action=reOrder&orderId=${eachO.orderId}"/>">Reorder</a>
+                                        <a href="<c:url value="/admin?action=reOrder&orderId=${eachO.orderId}"/>"><button class="btn btn-secondary">Reorder</button></a>
                             </c:when>
                     </c:choose></td>
             </c:forEach>
