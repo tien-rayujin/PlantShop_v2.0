@@ -10,47 +10,56 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+              crossorigin="anonymous">
     </head>
     <body>
         <!-- navigation bar for user -->
-        <ul>
-            <li><a href="<c:url value="/guest">
-                   </c:url>"><img src="<c:url value="/images/cute.jpg"/>" alt="Img Logo"/></a></li>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div class="container-fluid">
+                <div class="navbar-nav">
             
-            <li><a href="<c:url value="/user">
-            </c:url>">Home</a></li>
+                    <a class="nav-item nav-link active" href="<c:url value="/user">
+                    </c:url>">Home</a>
+                    
+                    <a class="nav-item nav-link" href="<c:url value="/guest">
+                    </c:url>">Shopping</a>
+
+                    <a class="nav-item nav-link" href="<c:url value="/user">
+                               <c:param name="action" value="changeProfile"/>
+                    </c:url>">Change Profile</a>
+
+                    <a class="nav-item nav-link" href="<c:url value="/user">
+                               <c:param name="action" value="viewComplete"/>
+                    </c:url>">Complete Order</a>
+
+                    <a class="nav-item nav-link" href="<c:url value="/user">
+                               <c:param name="action" value="viewCancel"/>
+                    </c:url>">Canceled Order</a>
+
+                    <a class="nav-item nav-link" href="<c:url value="/user">
+                               <c:param name="action" value="viewProcessing"/>
+                    </c:url>">Processing Order</a>
+                </div>
             
-            <li><a href="<c:url value="/user">
-                       <c:param name="action" value="changeProfile"/>
-            </c:url>">Change Profile</a></li>
             
-            <li><a href="<c:url value="/user">
-                       <c:param name="action" value="viewComplete"/>
-            </c:url>">Complete Order</a></li>
-            
-            <li><a href="<c:url value="/user">
-                       <c:param name="action" value="viewCancel"/>
-            </c:url>">Canceled Order</a></li>
-            
-            <li><a href="<c:url value="/user">
-                       <c:param name="action" value="viewProcessing"/>
-            </c:url>">Processing Order</a></li>
-            
-            
-            
-            <li><form action="<c:url value="/user"/>">
+                <form class="d-flex" action="<c:url value="/user"/>">
                     <input type="hidden" name="action" value="searchOrder"/>
-                    <input type="date" name="fromDate" min="2022-01-01" />
-                    <input type="date" name="toDate" min="2022-01-01" max="2222-01-01" />
-                    <input type="submit" value="Search"/>
-                </form></li>
-            
-        </ul>        
+                    <input class="form-control me-2" type="date" name="fromDate" min="2022-01-01" />
+                    <input class="form-control me-2" type="date" name="toDate" min="2022-01-01" max="2222-01-01" />
+                    <input class="btn btn-outline-success" type="submit" value="Search"/>
+                </form>      
         
         <!-- welcome and lgoout :)))-->
-        <h1>Welcome back, This is ${user.fullname} personal Page!</h1>
+        <p><font color="white">${user.fullname}</font></p>
         <p><a href="<c:url value="user">
                   <c:param name="action" value="logout" />
-        </c:url>">Logout</a></p><br/><br/>
+              </c:url>"><button class="btn btn-primary">Logout</button></a></p>
+        
+            </div>        
+        </nav>
+        <br/>
     </body>
 </html>

@@ -19,7 +19,7 @@
         <h2>Change User Profile</h2>
         <p><i>Customer name - ${username}</i></p>
         <c:if test="${update_Successful}">
-            <p><font color = "red">Your profile was update successful</font></p>
+            <h3><font color = "red">Your profile was update successfully</font></h3>
         </c:if>
         <table>
             <tr>
@@ -35,7 +35,7 @@
                       <c:param name="action" value="changeProfile"/>
                   </c:url>">
                 <td><input name="newName" size="15" type="text" value="" placeholder="Name to update ..."/></td>
-                <td><input size="7" type="submit" value="update"/></td>
+                <td><input class="btn btn-dark" size="7" type="submit" value="update"/></td>
 
                 </tr>
                 <tr>
@@ -43,7 +43,7 @@
                     <td><input disabled size="15" type="text" value="${user.phone}"/></td>
 
                     <td><input name="newPhone"" size="15" type="text" value="" placeholder="Phone to update ..."/></td>
-                    <td><input size="7" type="submit" value="update"/></td>
+                    <td><input class="btn btn-dark" size="7" type="submit" value="update"/></td>
             </form>
             </tr>
         </table>

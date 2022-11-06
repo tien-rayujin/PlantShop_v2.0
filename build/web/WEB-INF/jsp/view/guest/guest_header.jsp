@@ -42,8 +42,6 @@
                     <input class="btn btn-outline-success" type="submit" value="Search">
                 </form>
             </div>        
-                    
-        <br />
         </nav>
     </body>
 </html>

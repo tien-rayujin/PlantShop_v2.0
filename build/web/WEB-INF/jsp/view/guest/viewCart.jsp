@@ -23,7 +23,7 @@
     <body>
         <div class="text-center">
             <h2>Cart</h2>
-            <p><i>Customer name - ${(sessionScope.username == null) ? "guest" : sessionScope.username}</i></p>
+            <p><i>Customer name - ${(sessionScope.username == null) ? "guest" : sessionScope.user.fullname}</i></p>
         </div>
         
         

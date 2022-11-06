@@ -28,7 +28,7 @@
         <jsp-property-group>
             <url-pattern>/WEB-INF/jsp/view/user/user_index.jsp</url-pattern>
             <url-pattern>/WEB-INF/jsp/view/user/user_changeProfile.jsp</url-pattern>
-            <url-pattern>/WEB-INF/jsp/view/user/user_detail.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/user/order_detail.jsp</url-pattern>
             <include-prelude>/WEB-INF/jsp/view/user/user_header.jsp</include-prelude>
         </jsp-property-group>
         
