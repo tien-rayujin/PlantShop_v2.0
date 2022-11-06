@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>country</param-name> 
+        <param-value>VietNam</param-value>
+    </context-param>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <url-pattern>*.jspf</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <scripting-invalid>false</scripting-invalid>
+            <include-prelude>/WEB-INF/jsp/base.jspf</include-prelude>
+            <trim-directive-whitespaces>true</trim-directive-whitespaces>
+            <default-content-type>text/html</default-content-type>
+        </jsp-property-group>
+        
+        <jsp-property-group>
+            <url-pattern>/WEB-INF/jsp/view/guest/guest_index.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/guest/plant_detail.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/guest/viewCart.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/guest/register_successful.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/guest/login.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/guest/register.jsp</url-pattern>
+            <include-prelude>/WEB-INF/jsp/view/guest/guest_header.jsp</include-prelude>
+        </jsp-property-group>
+        
+        <jsp-property-group>
+            <url-pattern>/WEB-INF/jsp/view/user/user_index.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/user/user_changeProfile.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/user/user_detail.jsp</url-pattern>
+            <include-prelude>/WEB-INF/jsp/view/user/user_header.jsp</include-prelude>
+        </jsp-property-group>
+        
+        <jsp-property-group>
+            <url-pattern>/WEB-INF/jsp/view/admin/admin_index.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/admin/manage_account.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/admin/manage_cate.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/admin/manage_order.jsp</url-pattern>
+            <url-pattern>/WEB-INF/jsp/view/admin/manage_plant.jsp</url-pattern>
+            <include-prelude>/WEB-INF/jsp/view/admin/admin_header.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+<!--    <context-param>
+        <param-name>siteMapFile</param-name>
+        <param-value>/WEB-INF/siteMap.properties</param-value>
+    </context-param>-->
+</web-app>
