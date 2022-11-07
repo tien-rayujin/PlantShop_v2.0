@@ -264,4 +264,20 @@ public class OrderDao {
         disconnect();
         return res;
     }
+    
+    public static List<Order> searchOrders(String _fromDate, String _toDate) throws Exception{
+        if(_fromDate.isEmpty() || _toDate.isEmpty()) return null;
+        connect();
+        ArrayList<Order> res = new ArrayList<>();
+        ArrayList<Order> orderList = (ArrayList<Order>)listOrders();
+        java.util.Date fromDate = new SimpleDateFormat("yyyy-MM-dd").parse(_fromDate);
+        java.util.Date toDate = new SimpleDateFormat("yyyy-MM-dd").parse(_toDate);
+        
+        if(orderList != null && fromDate != null && toDate != null){
+            orderList.stream().filter(o -> o.getOrderDate().compareTo(fromDate) >= 0 && 
+                    o.getOrderDate().compareTo(toDate) <= 1).forEach(o -> res.add(o));
+        }
+        disconnect();
+        return res;
+    }
 }// OrderDao

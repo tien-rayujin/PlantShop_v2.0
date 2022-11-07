@@ -57,7 +57,19 @@ public class TestOrderDao {
 //        } catch (Exception e) { e.printStackTrace();
 //        }
 
-        listOrderByName("Test");
+//        listOrderByName("Test");
+
+        try {
+            String fromDate = "2022-10-22";
+            String toDate = "2022-10-30";
+            
+            ArrayList<Order> orderList = (ArrayList<Order>) OrderDao.searchOrders(fromDate, toDate);
+            if(orderList != null && orderList.size() > 0){
+                System.out.println("Successful");
+                orderList.forEach(System.out::println);
+            }else System.out.println("Fail");
+        } catch (Exception e) { e.printStackTrace();
+        }
     }
     
     public void test(){

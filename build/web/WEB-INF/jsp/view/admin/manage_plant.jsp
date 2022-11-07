@@ -23,7 +23,7 @@
             <c:if test="${updatePlant_Successful}">
                 <h4><font color='red'>Plant update Successfully</font></h4>
             </c:if>     
-        </div>
+        </div><br/><br/>  
             
         
             
@@ -50,7 +50,7 @@
                 <input type="hidden" name="action" value="updatePlantInfo"/>
                 <input type="hidden" name="plantId" value="${eachP.plantId}"/>
                 <tr>
-                    <td>${eachP.plantId}</td>
+                    <td><a href="<c:url value="/guest?action=view?&plantId=${eachP.plantId}"/>">${eachP.plantId}</a></td>
                     <td><input type="text" name="plantName" id="plantName_${eachP.plantId}" disabled="disabled" value="${eachP.plantName}"/></td>
                     <td><input type="text" name="price" id="price_${eachP.plantId}" disabled="disabled" value="${eachP.price}" size="7"/></td>
                     <td><input type="text" name="imgPath" id="imgPath_${eachP.plantId}" disabled="disabled" value="${eachP.imgPath}" size="30"/></td>

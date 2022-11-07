@@ -19,27 +19,28 @@
         </style>
     </head>
     <body>
-        <h2 class="text-center">Detail for OrderId #${requestScope.orderId}</h2>
-        <p class="text-center"><i>Customer name - ${username} - <b>${user.fullname}</b></i></p>
-        
-            
-        <c:if test="${requestScope.order_listDetail != null 
-                      and not empty requestScope.order_listDetail}"> <!-- list all data of ArrayList<OrderDetail> -->
-            <c:if test="${requestScope.order_listDetail.get(0).status == Order.CANCEL}">
-                <c:if test="${updateOrder_Successful}"><font color="red"><h5 class="text-center">Your order are updated</h5></font></c:if>
-                <h4 class="text-center">This Order was "Canceled" - To Order again click <a href="<c:url value="/user">
-                                                                         <c:param name="action" value="reOrder"/>
-                                                                         <c:param name="orderId" value="${requestScope.orderId}"/>
-                                                                    </c:url>"><button class="btn btn-dark">Here</button></a></h4>
-            </c:if>
-            <c:if test="${requestScope.order_listDetail.get(0).status == Order.PROCESSING}">
-                <c:if test="${updateOrder_Successful}"><font color="red"><h5 class="text-center">Your order are updated</h5></font></c:if>
-                <h4 class="text-center">The Order was in "Processing" - To Cancel Order click <a href="<c:url value="/user">
-                                                                         <c:param name="action" value="cancelOrder"/>
-                                                                         <c:param name="orderId" value="${requestScope.orderId}"/>
-                                                                             </c:url>"><button class="btn btn-dark">Here</button></a></h4>
-            </c:if>
-            
+        <div class="text-center">
+            <h2>Detail for OrderId #${requestScope.orderId}</h2>
+            <p><i>Customer name - ${username} - <b>${user.fullname}</b></i></p>
+
+
+            <c:if test="${requestScope.order_listDetail != null 
+                          and not empty requestScope.order_listDetail}"> <!-- list all data of ArrayList<OrderDetail> -->
+                <c:if test="${requestScope.order_listDetail.get(0).status == Order.CANCEL}">
+                    <c:if test="${updateOrder_Successful}"><font color="red"><h5>Your order are updated</h5></font></c:if>
+                    <h4>This Order was "Canceled" - To Order again click <a href="<c:url value="/user">
+                                                                             <c:param name="action" value="reOrder"/>
+                                                                             <c:param name="orderId" value="${requestScope.orderId}"/>
+                                                                        </c:url>"><button class="btn btn-dark">Here</button></a></h4>
+                </c:if>
+                <c:if test="${requestScope.order_listDetail.get(0).status == Order.PROCESSING}">
+                    <c:if test="${updateOrder_Successful}"><font color="red"><h5>Your order are updated</h5></font></c:if>
+                    <h4>The Order was in "Processing" - To Cancel Order click <a href="<c:url value="/user">
+                                                                             <c:param name="action" value="cancelOrder"/>
+                                                                             <c:param name="orderId" value="${requestScope.orderId}"/>
+                                                                                 </c:url>"><button class="btn btn-dark">Here</button></a></h4>
+                </c:if>
+        </div>    
             <c:forEach var="eachD" items="${requestScope.order_listDetail}">
                 <div class="row m-0">
                     <div class="col-lg-4 left-side-product-box pb-3">

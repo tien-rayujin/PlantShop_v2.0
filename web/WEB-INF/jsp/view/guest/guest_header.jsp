@@ -30,6 +30,16 @@
 
                     <a class="nav-item nav-link" href="<c:url value="/guest?action=viewCart">
                     </c:url>">ViewCart</a>
+                    
+                    <c:if test="${user.role == Account.ADMIN}">
+                        <a class="nav-item nav-link" href="<c:url value="/admin">
+                        </c:url>">Manager</a>
+                    </c:if>
+                    
+                    <c:if test="${user.role == Account.USER}">
+                        <a class="nav-item nav-link" href="<c:url value="/user">
+                        </c:url>">Personal</a>
+                    </c:if>
                 </div>
             
                 <form class="d-flex" action="<c:url value="/guest"/>">

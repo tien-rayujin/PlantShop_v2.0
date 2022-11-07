@@ -105,6 +105,9 @@ public class AdminPageServlet extends HttpServlet{
                 req.setAttribute("updateOrder_Successful", false);
                 this.aManageOrder_cancelOrder(req, resp);
                 break;
+            case "searchOrderByDate":
+                this.aSearchOrderByDate(req, resp);
+                break;
             case "searchOrderByName":
                 this.aSearchOrderByName(req, resp);
                 break;
@@ -292,10 +295,8 @@ public class AdminPageServlet extends HttpServlet{
     protected void aManageOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         try {
             HttpSession session = req.getSession();
-            if(session.getAttribute("orderList") == null){
-                ArrayList<Order> orderList = (ArrayList<Order>)OrderDao.listOrders();
+            ArrayList<Order> orderList = (ArrayList<Order>)OrderDao.listOrders();
                 session.setAttribute("orderList", orderList);
-            }
                 
             req.getRequestDispatcher("/WEB-INF/jsp/view/admin/manage_order.jsp").forward(req, resp);
         } catch (Exception ex) {
@@ -353,5 +354,21 @@ public class AdminPageServlet extends HttpServlet{
         }
     }
     
-    
+    protected void aSearchOrderByDate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        try {
+            String fromDate = req.getParameter("fromDate");
+            String toDate = req.getParameter("toDate");
+            
+            if(fromDate != null && !fromDate.isEmpty() 
+                    && toDate != null && !toDate.isEmpty()){
+            ArrayList<Order> res = (ArrayList<Order>)OrderDao.searchOrders(fromDate, toDate);
+                if(res != null && !res.isEmpty()){
+                    req.setAttribute("orderList", res);
+                    req.getRequestDispatcher("/WEB-INF/jsp/view/admin/manage_order.jsp").forward(req, resp);
+                }else resp.sendRedirect("admin");
+            }else resp.sendRedirect("admin");
+            
+        } catch (Exception e) { e.printStackTrace(); resp.sendRedirect("admin");
+        }
+    }
 }

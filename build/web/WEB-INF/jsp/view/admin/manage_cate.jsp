@@ -19,7 +19,7 @@
                 <h3><font color='red'>Category update Successfully</font></h3>
             </c:if>
             
-        </div>    
+        </div><br/><br/>      
         <table class="table text-center">
             <c:forEach items="${cateList}" var="eachCate" varStatus="status">
                 <c:if test="${status.first}">
@@ -34,7 +34,7 @@
                     <input type="hidden" name="action" value="updateCateInfo"/>
                     <input type="hidden" name="cateId" value="${eachCate.cateId}"/>
                     <tr>
-                        <td><input type="text" disabled name="cateId" value="${eachCate.cateId}"/></td>
+                        <td><a href="<c:url value="/guest?action=search&searchBy=byCategory&keySearch=${eachCate.cateName}"/>">${eachCate.cateId}</a></td>
                         <td><input type="text" disabled name="cateName" id="cateName_${eachCate.cateId}" value="${eachCate.cateName}"/></td>
                         <td><button  class="btn btn-secondary" id="editButton_${eachCate.cateId}" onclick="doEdit(${eachCate.cateId + ""})">Edit</button></td>
                         <td><input  class="btn btn-secondary" type="submit" disabled id="updateButton_${eachCate.cateId}" onclick="doEdit(${eachP.plantId + ""})" value="Update"></td>

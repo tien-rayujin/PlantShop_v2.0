@@ -23,7 +23,7 @@
             <c:if test="${updateAccount_Successful}">
                 <h4><font color='red'>Account update Successfully</font></h4>
             </c:if>
-        </div>    
+        </div><br/><br/>      
             
         <c:choose>
             <c:when test="${listAccount != null and not empty listAccount}">

@@ -19,22 +19,23 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
             <div class="container-fluid">
                 <div class="navbar-nav">
-        
-        
-            <a class="nav-item nav-link active" href="<c:url value="/admin">
-               </c:url>">Home</a>
-        
-            <a class="nav-item nav-link" href="<c:url value="/admin?action=manageAccount">
-               </c:url>">Manage Accounts</a>
-            
-            <a class="nav-item nav-link" href="<c:url value="/admin?action=managePlant">
-               </c:url>">Manage Plants</a>
+                    <a class="nav-item nav-link active" href="<c:url value="/admin">
+                       </c:url>">Home</a>
 
-            <a class="nav-item nav-link" href="<c:url value="/admin?action=manageCate">
-                </c:url>">Manage Categories</a>
-            
-            <a class="nav-item nav-link" href="<c:url value="/admin?action=manageOrder">
-               </c:url>">Manage Orders</a>
+                    <a class="nav-item nav-link" href="<c:url value="/admin?action=manageAccount">
+                       </c:url>">Manage Accounts</a>
+
+                    <a class="nav-item nav-link" href="<c:url value="/admin?action=managePlant">
+                       </c:url>">Manage Plants</a>
+
+                    <a class="nav-item nav-link" href="<c:url value="/admin?action=manageCate">
+                        </c:url>">Manage Categories</a>
+
+                    <a class="nav-item nav-link" href="<c:url value="/admin?action=manageOrder">
+                       </c:url>">Manage Orders</a>
+                    
+                    <a class="nav-item nav-link" href="<c:url value="/guest">
+                </c:url>">Shopping</a>
                 </div>
             
             <p><font color="white">[ADMIN] - ${user.fullname}</font></p>

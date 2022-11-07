@@ -126,7 +126,7 @@ public class PlantDao {
             return PlantDao.listPlants();
         else if(searchBy.equals("byName")) 
             return PlantDao.searchPlant_byName(keySearch, searchBy);
-        else return PlantDao.searchPlant_byCate(keySearch, searchBy);
+            else return PlantDao.searchPlant_byCate(keySearch, searchBy);
     }
     public static List<Plant> searchPlant_byName(String keySearch, String searchBy) throws Exception{
         List<Plant> list = new ArrayList<>();
