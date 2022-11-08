@@ -30,29 +30,28 @@
                         <div class="col-lg-12">
                             <h2>Product Detail #${requestScope.plant.plantId} - ${requestScope.plant.plantName}</h2>
                             <p><i>Customer name - ${(sessionScope.user == null) ? "guest" : sessionScope.user.fullname}</i></p>
-                            <p><a href="<c:url value="/guest" />">Return to list Plant</a></p>
 
-                            <h4>PlantName: ${plant.plantName}</h4>
-                            <p>Price: ${requestScope.plant.price}</p>
-                            <p>Status: ${requestScope.plant.status == 1 ? "available" : "unavailable"}</p>
-                            <p>Country: ${initParam.country}</p>
+                            <h4>Product: ${plant.plantName}</h4><br/>
+                            <p><b>Price:</b> ${requestScope.plant.price}$</p>
+                            <p><b>Status:</b> ${requestScope.plant.status == 1 ? "available" : "unavailable"}</p>
+                            <p><b>Country:</b> ${initParam.country}</p>
                             <p><b>Description:</b> ${requestScope.plant.description}</p>
 
                             <c:if test="${addToCart_Successful}">
-                                <p><font color = "red">Your product was added, To ViewCart click on <a href="<c:url value="/guest?action=viewCart"/>">here</a></font></p>
+                                <h4><font color = "red">Your product was added, To ViewCart click on <a href="<c:url value="/guest?action=viewCart"/>">here</a></font></h4>
                             </c:if>
 
                                 <c:choose>
                                     <c:when test="${plant.status != Plant.UNAVAILABLE}">
                                         <form action="<c:url value="/guest"/>" method="GET"> 
-                                            <p>Quantity: <input type="number" name="quantity" min="1" max="5" value="1"></p>
+                                            <p>Quantity: <input type="number" name="quantity" min="1" max="20" value="1"></p>
                                             <p><input type="hidden" name="action" value="addToCart"></p>
                                             <p><input type="hidden" name="plantId" value="${requestScope.plant.plantId}"></p>
-                                            <p><input type="submit" value="Add To Cart" /></p>
+                                            <p><i class="bi bi-cart"></i><input class="btn btn-success" type="submit" value="Add To Cart" /></p>
                                         </form>
                                     </c:when>
                                     <c:otherwise> <!-- User can click on unavailable products -->
-                                        <p><input type="submit" disabled value="Add To Cart" /></p>
+                                        <p><input class="btn btn-success" type="submit" disabled value="Add To Cart" /></p>
                                     </c:otherwise>
                                 </c:choose>
                          </div>       

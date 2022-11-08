@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -117,8 +118,7 @@ public class UserPageServlet extends HttpServlet{
             try {
                 // if session exist then invalidate and redirect
                 // delete token in that account before kill session, that thing delete user cookie :V
-                 AccountDao.deleteToken((String) session.getAttribute("username"));
-                 
+                AccountDao.deleteToken((String) session.getAttribute("username"));
                 session.invalidate();
                 resp.sendRedirect("guest");
                 return;

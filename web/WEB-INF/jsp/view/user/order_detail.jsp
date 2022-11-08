@@ -52,11 +52,11 @@
                         <div class="right-side-pro-detail border p-3 m-0">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <p>PlantId: ${eachD.plantId}</p>
-                                    <p>PlantName: ${eachD.plantName}</p>
-                                    <p>Price: ${eachD.price}</p>
-                                    <p>PlantStatus: ${eachD.plantStatus == Plant.AVAILABLE ? "available" : "unavailable"}</p>
-                                    <p>Quantity: ${eachD.quantity}</p><br />
+                                    <p><a href="<c:url value="/guest?action=view&plantId=${eachD.plantId}"/>"><b>PlantId:</b> ${eachD.plantId}</a></p>
+                                    <p><b>PlantName:</b> ${eachD.plantName}</p>
+                                    <p><b>Price:</b> ${eachD.price}$</p>
+                                    <p><b>Status:</b> ${eachD.plantStatus == Plant.AVAILABLE ? "available" : "unavailable"}</p>
+                                    <p><b>Quantity:</b> ${eachD.quantity}</p><br />
                                 </div>
                             </div>
                         </div>

@@ -213,6 +213,8 @@ public class GuestPageServlet extends HttpServlet{
                     
                     // addCookie to user browser
                     Cookie gTokenAccount = new Cookie("token", token);
+                    gTokenAccount.setMaxAge(60*3);
+                    gTokenAccount.setComment("accessing PlantShop don't need to login again");
                     resp.addCookie(gTokenAccount);
                 }// remember checked
                 

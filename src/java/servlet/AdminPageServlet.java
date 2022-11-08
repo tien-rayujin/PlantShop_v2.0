@@ -187,6 +187,7 @@ public class AdminPageServlet extends HttpServlet{
             String newPlantName = req.getParameter("plantName");
             int newPrice = Integer.parseInt(req.getParameter("price"));
             String newImgPath= req.getParameter("imgPath");
+            newImgPath = "/images/Plants/".concat(newImgPath);
             String newDescription= req.getParameter("description");
             int newStatus = Integer.parseInt(req.getParameter("status"));
             int newCateId = Integer.parseInt(req.getParameter("cateId"));
@@ -233,6 +234,7 @@ public class AdminPageServlet extends HttpServlet{
             String new_plantName = req.getParameter("new_plantName");
             int new_price = Integer.parseInt(req.getParameter("new_price"));
             String new_imgPath = req.getParameter("new_imgPath");
+            new_imgPath = "/images/Plants/".concat(new_imgPath);
             String new_description = req.getParameter("new_description");
             int new_status = Integer.parseInt(req.getParameter("new_status"));
             int new_cateId = Integer.parseInt(req.getParameter("new_cateId"));

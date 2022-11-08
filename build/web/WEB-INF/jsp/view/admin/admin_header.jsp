@@ -22,6 +22,9 @@
                     <a class="nav-item nav-link active" href="<c:url value="/admin">
                        </c:url>">Home</a>
 
+                    <a class="nav-item nav-link" href="<c:url value="/guest">
+                        </c:url>">Shopping</a>
+                    
                     <a class="nav-item nav-link" href="<c:url value="/admin?action=manageAccount">
                        </c:url>">Manage Accounts</a>
 
@@ -32,10 +35,7 @@
                         </c:url>">Manage Categories</a>
 
                     <a class="nav-item nav-link" href="<c:url value="/admin?action=manageOrder">
-                       </c:url>">Manage Orders</a>
-                    
-                    <a class="nav-item nav-link" href="<c:url value="/guest">
-                </c:url>">Shopping</a>
+                       </c:url>">Manage Orders</a>  
                 </div>
             
             <p><font color="white">[ADMIN] - ${user.fullname}</font></p>

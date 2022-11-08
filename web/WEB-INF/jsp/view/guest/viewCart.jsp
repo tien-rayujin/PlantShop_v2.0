@@ -37,7 +37,7 @@
             <c:when test="${sessionScope.cart != null and not empty sessionScope.cart and sessionScope.plantList != null and not empty sessionScope.plantList}">
             <p class="text-center"><a href="<c:url value="/guest">
                       <c:param name="action" value="emptyCartItem"/>
-                    </c:url>">Empty my cart</a></p>
+                                      </c:url>"><button class="btn btn-secondary">Empty my cart</button></a></p>
                 <c:forEach items="${sessionScope.plantList}" var="eachP">
                     <c:forEach items="${sessionScope.cart.keySet()}" var="eachItem">
                         <c:if test="${eachP.getPlantId() == eachItem}">
@@ -54,12 +54,13 @@
                                                           <c:param name="action" value="view"/>
                                                           <c:param name="plantId" value="${eachItem}"/>
                                                 </c:url>">PlantId: ${eachP.plantId}</a></p>
+                                                <p>Product: ${eachP.plantName}</p>
                                                 <p>Price ${eachP.price}$</p>
                                                 <form action="<c:url value="/guest"/>" method="get">
                                                     <p>Quantity: <input type="number" name="quantityUpdate" min="0" value="${sessionScope.cart.get(eachItem)}"/></p>
                                                     <p><input type="hidden" name="plantId" value="${eachItem}"/></p>
-                                                    <p><input type="submit" name="action" value="updateQuantity"/></p>
-                                                    <p><input type="submit" name="action" value="deleteCartItem"/></p>
+                                                    <p><input class="btn btn-success" type="submit" name="action" value="updateQuantity"/></p>
+                                                    <p><input class="btn btn-danger" type="submit" name="action" value="deleteCartItem"/></p>
                                                 </form>
                                             </div> 
                                         </div> 

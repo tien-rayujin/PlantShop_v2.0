@@ -30,9 +30,9 @@
                                         <img class="card-img-top" src="<c:url value="${eachP.imgPath}" />" alt="Img for '${eachP.plantName}'"/>
                                             
                                         <div class="card-body">
-                                            <h5 class="card-title">PlantName: ${eachP.plantName}</h5>
+                                            <h5 class="card-title">${eachP.plantName}</h5>
                                             <p class="card-text">Price: ${eachP.price} $</p>
-                                            <p class="card-text">Status: ${eachP.status == Plant.AVAILABLE ? "available" : "unavailable"}</p>
+                                            <p class="card-text">Status: ${eachP.status == Plant.AVAILABLE ? "Available" : "Out of Stocks"}</p>
                                             <p><a class="btn btn-primary" href="<c:url value="/guest">
                                                       <c:param name="action" value="view"/>
                                                       <c:param name="plantId" value="${eachP.plantId}"/>

@@ -50,10 +50,10 @@
                 <input type="hidden" name="action" value="updatePlantInfo"/>
                 <input type="hidden" name="plantId" value="${eachP.plantId}"/>
                 <tr>
-                    <td><a href="<c:url value="/guest?action=view?&plantId=${eachP.plantId}"/>">${eachP.plantId}</a></td>
+                    <td><a href="<c:url value="/guest?action=view&plantId=${eachP.plantId}"/>">${eachP.plantId}</a></td>
                     <td><input type="text" name="plantName" id="plantName_${eachP.plantId}" disabled="disabled" value="${eachP.plantName}"/></td>
-                    <td><input type="text" name="price" id="price_${eachP.plantId}" disabled="disabled" value="${eachP.price}" size="7"/></td>
-                    <td><input type="text" name="imgPath" id="imgPath_${eachP.plantId}" disabled="disabled" value="${eachP.imgPath}" size="30"/></td>
+                    <td><input type="number" name="price" id="price_${eachP.plantId}" disabled="disabled" value="${eachP.price}" size="7"/></td>
+                    <td><input type="text" name="imgPath" id="imgPath_${eachP.plantId}" disabled="disabled" value="${fn:substring(eachP.imgPath, eachP.imgPath.lastIndexOf("/") + 1, eachP.imgPath.length())}" size="30"/></td>
                     <td><input type="text" name="description" id="description_${eachP.plantId}" disabled="disabled" value="${eachP.description}"/></td>
                     <td><input type="text" name="status" id="status_${eachP.plantId}" disabled="disabled" value="${eachP.status}" size="5"/></td>
                     <td><input type="text" name="cateId" id="cateId_${eachP.plantId}" disabled="disabled" value="${eachP.cateId}" size="5"/></td>
@@ -66,7 +66,7 @@
                 
                 </c:forEach>
                 <c:if test="${addPlant_Successful}">
-                    <h4><font color="red">Plant added Successfully</font></h4>
+                    <h4 class="text-center"><font color="red">Plant added Successfully</font></h4>
                 </c:if>
                         
                 <form action="<c:url value="/admin"/>" method="get">
@@ -74,11 +74,11 @@
                 <tr>
                     <td>#</td>
                     <td><input id="new_plantName" disabled="" type="text" name="new_plantName" required=""/></td>
-                    <td><input id="new_price" disabled="" type="text" size="7" name="new_price" required=""/></td>
+                    <td><input id="new_price" disabled="" type="number" size="7" name="new_price" required=""/></td>
                     <td><input id="new_imgPath" disabled="" type="text" size="30" name="new_imgPath" required=""/></td>
                     <td><input id="new_description" disabled="" type="text" name="new_description" required=""/></td>
-                    <td><input id="new_status" disabled="" type="text" size="5" name="new_status" required=""/></td>
-                    <td><input id="new_cateId" disabled="" type="text" size="5" name="new_cateId" required=""/></td>
+                    <td><input id="new_status" disabled="" type="number" min="0" max="1" size="5" name="new_status" required=""/></td>
+                    <td><input id="new_cateId" disabled="" type="number" size="5" name="new_cateId" required=""/></td>
                     <td><input class="btn btn-secondary" id="add_newButton" disabled="" type="submit" value="Add"/></td>
                 </tr>
                 

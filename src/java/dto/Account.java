@@ -41,7 +41,11 @@ public class Account implements Serializable{
     }
 
     
-    
+    public static void main(String[] args) {
+        String test = "/images/Plant/dcmmm.jpg";
+        int index = test.lastIndexOf("/");
+        System.out.println(test.substring(index + 1, test.length()));
+    }
     public Account(String fullname, String password, String email, String phone, int accId, int status, int role) {
         this.fullname = fullname;
         this.password = password;
