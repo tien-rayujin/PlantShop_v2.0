@@ -41,16 +41,16 @@
                                     <form class="mx-1 mx-md-4" method="POST" action="<c:url value="/guest" />">
                                         <input type="hidden" name="action" value="register" />
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <input class="form-control" type="text" minlength="5" maxlength="20" name="username" required placeholder="Username"/>
+                                            <input class="form-control" type="text" minlength="5" pattern="[a-zA-Z_0-9\s]+" title="Minimum length is 5" maxlength="20" name="username" required placeholder="Username"/>
                                         </div>
                                         
                                         
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <input class="form-control" type="password" name="password" required placeholder="Password"/>
+                                            <input class="form-control" type="password" pattern=".+" name="password" required placeholder="Password"/>
                                         </div>
                                         
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <input class="form-control" type="tel" pattern="[0-9]{10}" name="phone" required placeholder="Phone"/>
+                                            <input class="form-control" type="tel" pattern="[0-9]{10}" title="number must be 10 digit" name="phone" required placeholder="Phone"/>
                                         </div>
                                         
                                         <div class="d-flex flex-row align-items-center mb-4">
@@ -58,7 +58,7 @@
                                         </div>
                                         
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <input class="btn btn-primary btn-lg" type="submit" value="Log In" />
+                                            <input class="btn btn-primary btn-lg" type="submit" value="Register" />
                                         </div>
                                     </form>
                                     </div>

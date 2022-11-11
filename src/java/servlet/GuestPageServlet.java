@@ -189,13 +189,16 @@ public class GuestPageServlet extends HttpServlet{
             String password = req.getParameter("password");
             String remember = req.getParameter("remember"); // ask to save token
             Account acLogin = AccountDao.validateAccount(username, password);
-        
             if(username == null || password == null ||
                 acLogin == null){
                 // user input is invalid
                 req.setAttribute("loginFailed", true);
                 req.getRequestDispatcher("/WEB-INF/jsp/view/guest/login.jsp").forward(req, resp);
             }else{
+                if(acLogin.getStatus() == Account.INACTIVE){
+                    resp.sendRedirect("guest");
+                    return;
+                }
                 // user input is valid account
                 session.setAttribute("username", username);
                 session.setAttribute("user", acLogin);

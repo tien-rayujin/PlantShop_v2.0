@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>User Personal Page</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
               rel="stylesheet" 
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
@@ -20,7 +20,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
             <div class="container-fluid">
                 <div class="navbar-nav">
-            
+                    <a class="navbar-brand" href="<c:url value="/guest"/>">DISPATCH COMPANY</a>
+                    
                     <a class="nav-item nav-link active" href="<c:url value="/user">
                     </c:url>">Home</a>
                     

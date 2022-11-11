@@ -15,9 +15,9 @@
         <div class="text-center">
             <h2>Manage Plant</h2>
             <form action="<c:url value="/admin"/>">
-                <input type="text" name="keySearch" placeholder="Search plant name here..." value="${requestScope.keySearch}">
+                <input style="padding: 5px; width: 400px" type="text" name="keySearch" placeholder="Search plant name here..." value="${requestScope.keySearch}">
                 <input type="hidden" name="action" value="searchPlant" />
-                <input type="submit" value="Search">
+                <input class="btn btn-outline-success" type="submit" value="Search">
             </form>
                 
             <c:if test="${updatePlant_Successful}">
@@ -30,6 +30,7 @@
             
         <c:choose>
             <c:when test="${plantList != null and not empty plantList}">
+                <div class="container-fluid">
                 <table class="table text-center">
                 <c:forEach var="eachP" items="${plantList}" varStatus="status">
                 <c:if test="${status.first}">
@@ -55,8 +56,8 @@
                     <td><input type="number" name="price" id="price_${eachP.plantId}" disabled="disabled" value="${eachP.price}" size="7"/></td>
                     <td><input type="text" name="imgPath" id="imgPath_${eachP.plantId}" disabled="disabled" value="${fn:substring(eachP.imgPath, eachP.imgPath.lastIndexOf("/") + 1, eachP.imgPath.length())}" size="30"/></td>
                     <td><input type="text" name="description" id="description_${eachP.plantId}" disabled="disabled" value="${eachP.description}"/></td>
-                    <td><input type="text" name="status" id="status_${eachP.plantId}" disabled="disabled" value="${eachP.status}" size="5"/></td>
-                    <td><input type="text" name="cateId" id="cateId_${eachP.plantId}" disabled="disabled" value="${eachP.cateId}" size="5"/></td>
+                    <td><input type="number" name="status" id="status_${eachP.plantId}" disabled="disabled" value="${eachP.status}" size="5"/></td>
+                    <td><input type="number" name="cateId" id="cateId_${eachP.plantId}" disabled="disabled" value="${eachP.cateId}" size="5"/></td>
                     <td><button class="btn btn-secondary" id="editButton_${eachP.plantId}" onclick="doEdit(${eachP.plantId + ""})">Edit</button></td>
                     <td><input class="btn btn-secondary" type="submit" disabled id="updateButton_${eachP.plantId}" onclick="doEdit(${eachP.plantId + ""})" value="Update"></td>
                 </form>    
@@ -77,13 +78,14 @@
                     <td><input id="new_price" disabled="" type="number" size="7" name="new_price" required=""/></td>
                     <td><input id="new_imgPath" disabled="" type="text" size="30" name="new_imgPath" required=""/></td>
                     <td><input id="new_description" disabled="" type="text" name="new_description" required=""/></td>
-                    <td><input id="new_status" disabled="" type="number" min="0" max="1" size="5" name="new_status" required=""/></td>
-                    <td><input id="new_cateId" disabled="" type="number" size="5" name="new_cateId" required=""/></td>
+                    <td><input id="new_status" min="0" disabled="" type="number" name="new_status" required=""/></td>
+                    <td><input id="new_cateId" min="1" disabled="" type="number" name="new_cateId" required=""/></td>
                     <td><input class="btn btn-secondary" id="add_newButton" disabled="" type="submit" value="Add"/></td>
                 </tr>
                 
                 </form>
                 </table> 
+                </div>
                 <button class="btn btn-secondary" onclick="doAdd()">Add...</button>
             </c:when>
             <c:otherwise>

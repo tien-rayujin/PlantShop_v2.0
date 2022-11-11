@@ -15,11 +15,10 @@
         <div class="text-center">
             <h2>Manage User Account</h2>
             <form action="<c:url value="/admin"/>">
-                <input type="text" name="keySearch" placeholder="Search user fullname here..." value="${requestScope.keySearch}">
+                <input style="padding: 5px; width: 400px" type="text" name="keySearch" placeholder="Search user fullname here..." value="${requestScope.keySearch}">
                 <input type="hidden" name="action" value="searchAccount" />
-                <input type="submit" value="Search">
-            </form>
-
+                <input class="btn btn-outline-success" type="submit" value="Search">
+            </form>  
             <c:if test="${updateAccount_Successful}">
                 <h4><font color='red'>Account update Successfully</font></h4>
             </c:if>

@@ -24,7 +24,7 @@
                 <c:choose>
                     <c:when test="${plantList != null && not empty plantList}">
                         <c:forEach var="eachP" items="${plantList}">
-                            <div class="col-md-4" align="center" style="margin-bottom: 20px"> 
+                            <div class="col-md-3" align="center" style="margin-bottom: 20px"> 
                                     <div class="card" style="width: 18rem;">
                                         <p hidden="">PlantId: ${eachP.plantId}</p>
                                         <img class="card-img-top" src="<c:url value="${eachP.imgPath}" />" alt="Img for '${eachP.plantName}'"/>

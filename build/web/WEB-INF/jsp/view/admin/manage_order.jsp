@@ -17,8 +17,8 @@
 
             <form action="<c:url value="/admin"/>">
                 <input type="hidden" name="action" value="searchOrderByName">
-                <input type="text" name="customerName" placeholder="Search username here ..." value="${customerName}"/>
-                <input type="submit" value="Search"/>
+                <input style="padding: 5px; width: 400px" type="text" name="customerName" placeholder="Search username here ..." value="${customerName}"/>
+                <input class="btn btn-outline-success" type="submit" value="Search"/>
             </form>
                 
             <form class="d-flex" action="<c:url value="/admin"/>">
